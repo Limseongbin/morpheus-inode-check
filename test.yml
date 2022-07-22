@@ -2,6 +2,7 @@
 - name: test job
   hosts: all
 
+  tasks:
   - name: test
     shell: hostname
     register: var_hostname
