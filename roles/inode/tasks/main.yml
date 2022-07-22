@@ -7,7 +7,7 @@
     mode: "0777"
 
 - name: "Script run"
-  shell: /tmp/inode_check.sh > "inode_check_{{ inventory.hostname }}.log"
+  shell: /tmp/inode_check.sh > "inode_check_{{ inventory_hostname }}.log"
 
 - name: "dir create"
   file:
@@ -17,5 +17,5 @@
 
 - name: "Send file (Remote --> Local)"
   fetch:
-    src: "/tmp/inode_check_{{ inventory.hostname }}.log"
+    src: "/tmp/inode_check_{{ inventory_hostname }}.log"
     dest: "/var/log/morpheus/custom/"
