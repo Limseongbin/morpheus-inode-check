@@ -30,3 +30,6 @@
   file:
     path: "/tmp/inode_check.sh"
     state: absent
+
+- name: "Check script run"
+  script: check.py
