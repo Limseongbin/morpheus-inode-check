@@ -7,7 +7,7 @@
     mode: "0777"
 
 - name: "Gathering script run"
-  shell: "/tmp/inode_check.sh {{ limit }} > /tmp/inode_check_{{ inventory_hostname }}.log"
+  shell: "/tmp/inode_check.sh {{ limit }} > /tmp/inode_check_{{ ansible_hostname }}.log"
 
 - name: "dir create"
   file:
@@ -17,13 +17,13 @@
 
 - name: "Send file (Remote --> Local)"
   fetch:
-    src: "/tmp/inode_check_{{ inventory_hostname }}.log"
-    dest: "/tmp/inode_check/{{ inventory_hostname }}.log"
+    src: "/tmp/inode_check_{{ ansible_hostname }}.log"
+    dest: "/tmp/inode_check/{{ ansible_hostname }}.log"
     flat: yes
 
 - name: "Clean up - result File"
   file:
-    path: "/tmp/inode_check_{{ inventory_hostname }}.log"
+    path: "/tmp/inode_check_{{ ansible_hostname }}.log"
     state: absent
 
 - name: "Clean up - script File"
@@ -32,11 +32,6 @@
     state: absent
 
 - name: "Check script run"
-  script: "check.py {{ inventory_hostname }} {{ to_list }}"
+  script: "check.py {{ ansible_hostname }} {{ to_list }}"
   delegate_to: localhost
   
-- debug:
-    var: inventory_hostanme
-
-- debug:
-    var: ansible_hostname
