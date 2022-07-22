@@ -1,0 +1,5 @@
+---
+- name: OS inode(df -i) Check
+  hosts: all
+  roles:
+    - inode
