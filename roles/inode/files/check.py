@@ -12,6 +12,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 inventoryHostname = sys.argv[1]
 toList = sys.argv[2]
+limit = sys.argv[3]
 logFile = '/tmp/inode_check/'+inventoryHostname+'.log'
 
 if os.path.isfile(logFile):
@@ -19,7 +20,7 @@ if os.path.isfile(logFile):
       lines = [line.strip() for line in f.readlines()]
       
    if len(lines) > 0:
-      content = '<h2>'+inventoryHostname+' Server i-node Warning</h2>'
+      content = '<h2>'+inventoryHostname+' Server i-node Warning ('+limit+' Over Detected)</h2>'
       content += '<table>'
       content += '<tr><th style="border-bottom: 1px black solid;width: 200px;">Filesystem</th><th style="border-bottom: 1px black solid;width: 200px;">Mount on</th><th style="border-bottom: 1px black solid;width: 200px;">Usage</th></tr>'
       
