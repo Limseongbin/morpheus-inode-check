@@ -11,11 +11,11 @@
 
 - name: "dir create"
   file:
-    path: "/var/log/morpheus/custom"
+    path: "/tmp/morpheus/node_check"
     state: directory
   delegate_to: localhost
 
 - name: "Send file (Remote --> Local)"
   fetch:
     src: "/tmp/inode_check_{{ inventory_hostname }}.log"
-    dest: "/var/log/morpheus/custom/"
+    dest: "/tmp/morpheus/node_check/inode_check_{{ inventory_hostname }}.log"
