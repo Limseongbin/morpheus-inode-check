@@ -32,4 +32,4 @@
     state: absent
 
 - name: "Run Check py"
-  shell: check.py
+  shell: "python3 check.py"
