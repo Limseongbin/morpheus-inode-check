@@ -33,5 +33,10 @@
 
 - name: "Check script run"
   script: "check.py {{ ansible_hostname }} {{ to_list }}"
+  register: check_result
   delegate_to: localhost
+  
+- name: Result Message
+  debug:
+    msg: "{{ check_result.stdout }}"
   
