@@ -6,6 +6,6 @@ df -i | while read line; do
    mountPoint=`echo $line | awk '{ print $6 }'`
    
    if [ "${filesystem}" != "Filesystem" ] && [ ${percent} -ge 1 ]; then
-      echo "\"filesystem\":\"${filesystem}\",\"mountpoint\":\"${mountPoint}\",\"percent\":\"${percent}\""
+      echo "${filesystem},${mountPoint},${percent}"
    fi
 done
