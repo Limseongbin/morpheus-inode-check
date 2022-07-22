@@ -1,3 +1,6 @@
 #!/usr/bin/python3
 
-print("sampel python run")
+import sys
+
+inventoryHostname = sys.argv[1]
+print(inventoryHostname)
