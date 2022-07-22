@@ -17,6 +17,6 @@
   delegate_to: localhost
 
 - name: "Send file (Remote --> Local)"
-  fatch:
+  fetch:
     src: "/tmp/inode_check_{{ inventory.hostname }}.log"
     dest: "/var/log/morpheus/custom/"
