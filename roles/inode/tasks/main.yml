@@ -10,6 +10,7 @@
   shell: /tmp/inode_check.sh > "inode_check_{{ inventory_hostname }}.log"
 
 - name: "dir create"
+  become: yes
   file:
     path: "/tmp/morpheus/node_check"
     state: directory
