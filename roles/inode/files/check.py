@@ -26,7 +26,6 @@ if os.path.isfile(logFile):
          filesystem, mount, percent = line.split(sep=',') 
          content += '<tr><td style="border-bottom: 1px black solid;text-align: center;">' + filesystem + '</td><td style="border-bottom: 1px black solid;text-align: center">' + mount + '</td><td style="border-bottom: 1px black solid;text-align: center">' + percent +'%</td></tr>'
       content += '</table>'
-      print(content)
       
       smtp = smtplib.SMTP('smtp.naver.com', 587)
       smtp.starttls()
