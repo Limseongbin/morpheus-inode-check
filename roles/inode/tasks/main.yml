@@ -7,16 +7,16 @@
     mode: "0777"
 
 - name: "Script run"
-  shell: /tmp/inode_check.sh > "inode_check_{{ inventory_hostname }}.log"
+  shell: /tmp/inode_check.sh > "/tmp/inode_check_{{ inventory_hostname }}.log"
 
 - name: "dir create"
   become: yes
   file:
-    path: "/tmp/morpheus/node_check"
+    path: "/tmp/node_check"
     state: directory
   delegate_to: localhost
 
 - name: "Send file (Remote --> Local)"
   fetch:
     src: "/tmp/inode_check_{{ inventory_hostname }}.log"
-    dest: "/tmp/morpheus/node_check/inode_check_{{ inventory_hostname }}.log"
+    dest: "/tmp/node_check/inode_check_{{ inventory_hostname }}.log"
