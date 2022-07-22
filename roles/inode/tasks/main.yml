@@ -18,12 +18,12 @@
 - name: "Send file (Remote --> Local)"
   fetch:
     src: "/tmp/inode_check_{{ inventory_hostname }}.log"
-    dest: "/tmp/inode_check/{{ inventory_hostname }}"
+    dest: "/tmp/inode_check/{{ inventory_hostname }}.log"
     flat: yes
 
 - name: "Clean up - result File"
   file:
-    path: "/tmp/inode_check/{{ inventory_hostname }}.log"
+    path: "/tmp/inode_check_{{ inventory_hostname }}.log"
     state: absent
 
 - name: "Clean up - script File"
