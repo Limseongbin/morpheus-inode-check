@@ -11,7 +11,7 @@
 
 - name: "dir create"
   file:
-    path: "/tmp/inode_check/{{ inventory_hostname }}"
+    path: "/tmp/inode_check"
     state: directory
   delegate_to: localhost
 
