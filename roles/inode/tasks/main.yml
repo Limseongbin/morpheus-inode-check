@@ -32,7 +32,7 @@
     state: absent
 
 - name: "Check script run"
-  script: "check.py {{ ansible_hostname }} {{ to_list }}"
+  script: "check.py {{ ansible_hostname }} {{ to_list }} {{ limit }}"
   register: check_result
   delegate_to: localhost
   
