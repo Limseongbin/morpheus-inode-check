@@ -11,19 +11,19 @@
 
 - name: "dir create"
   file:
-    path: "/tmp/node_check"
+    path: "/tmp/inode_check/{{ inventory_hostname }}"
     state: directory
   delegate_to: localhost
 
 - name: "Send file (Remote --> Local)"
   fetch:
     src: "/tmp/inode_check_{{ inventory_hostname }}.log"
-    dest: "/tmp/node_check/"
+    dest: "/tmp/inode_check/{{ inventory_hostname }}"
     flat: yes
 
 - name: "Clean up - result File"
   file:
-    path: "/tmp/inode_check_{{ inventory_hostname }}.log"
+    path: "/tmp/inode_check/{{ inventory_hostname }}.log"
     state: absent
 
 - name: "Clean up - script File"
