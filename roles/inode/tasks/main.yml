@@ -2,7 +2,7 @@
 
 - name: "Check script deploy"
   copy:
-    src: check.sh
+    src: gathering.sh
     dest: /tmp/inode_check.sh
     mode: "0777"
 
