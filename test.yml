@@ -1,8 +1,10 @@
 ---
+- name: test job
+  hosts: all
 
-- name: test
-  shell: hostname
-  register: var_hostname
+  - name: test
+    shell: hostname
+    register: var_hostname
   
-- debug:
-    var: var_hostname
+  - debug:
+      var: var_hostname
