@@ -32,7 +32,7 @@
     state: absent
 
 - name: "Check script run"
-  script: check.py
+  script: "check.py {{ inventory_hostname }}"
   register: check_result
   delegate_to: localhost
   
