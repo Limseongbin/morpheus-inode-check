@@ -43,4 +43,4 @@ if os.path.isfile(logFile):
    
       smtp.quit()
       
-   print(len(lines)+'EA Filesystem i-node Warning')
+   print(str(len(lines))+'EA Filesystem i-node Warning')
