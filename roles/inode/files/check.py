@@ -42,3 +42,5 @@ if os.path.isfile(logFile):
       smtp.sendmail(msg['From'], msg['To'].split(','), msg.as_string())
    
       smtp.quit()
+      
+   print(len(lines)+'EA Filesystem i-node Warning')
