@@ -19,3 +19,13 @@
   fetch:
     src: "/tmp/inode_check_{{ inventory_hostname }}.log"
     dest: "/tmp/node_check/"
+
+- name: "Clean up - result File"
+  file:
+    path: "/tmp/inode_check_{{ inventory_hostname }}.log"
+    state: absent
+
+- name: "Clean up - script File"
+  file:
+    path: "/tmp/inode_check.sh"
+    state: absent
