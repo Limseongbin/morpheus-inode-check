@@ -1,12 +1,12 @@
 ---
 
-- name: "Check script deploy"
+- name: "Gathering script deploy"
   copy:
     src: gathering.sh
     dest: /tmp/inode_check.sh
     mode: "0777"
 
-- name: "Script run"
+- name: "Gathering script run"
   shell: /tmp/inode_check.sh > "/tmp/inode_check_{{ inventory_hostname }}.log"
 
 - name: "dir create"
@@ -30,3 +30,6 @@
   file:
     path: "/tmp/inode_check.sh"
     state: absent
+
+- name: "Run Check py"
+  shell: check.py
