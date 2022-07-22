@@ -11,6 +11,7 @@ from email.mime.text import MIMEText
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 inventoryHostname = sys.argv[1]
+toList = sys.argv[2]
 logFile = '/tmp/inode_check/'+inventoryHostname+'.log'
 
 if os.path.isfile(logFile):
@@ -34,7 +35,7 @@ if os.path.isfile(logFile):
       msg = MIMEMultipart('Multipart')
       msg['From'] = "morpheus alert<lim900309@naver.com>"
       msg['Subject'] = 'Morpheus - '+inventoryHostname+' Server i-node Warning !'
-      msg['To'] = "lim900309@gmail.com"
+      msg['To'] = toList
       part = MIMEText(content, 'html') 
       msg.attach(part)
       
