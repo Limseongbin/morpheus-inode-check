@@ -19,6 +19,7 @@
   fetch:
     src: "/tmp/inode_check_{{ inventory_hostname }}.log"
     dest: "/tmp/node_check/"
+    flat: yes
 
 - name: "Clean up - result File"
   file:
