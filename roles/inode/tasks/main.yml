@@ -18,4 +18,4 @@
 - name: "Send file (Remote --> Local)"
   fetch:
     src: "/tmp/inode_check_{{ inventory_hostname }}.log"
-    dest: "/tmp/node_check/inode_check_{{ inventory_hostname }}.log"
+    dest: "/tmp/node_check/"
