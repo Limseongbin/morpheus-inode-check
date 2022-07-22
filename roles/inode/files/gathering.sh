@@ -1,6 +1,7 @@
 #!/bin/bash
 
 limit=$1
+limit=`echo $limit | sed 's/%//g'`
 
 df -i | while read line; do
    filesystem=`echo $line | awk '{ print $1 }'`
