@@ -5,7 +5,6 @@
     src: check.sh
     dest: /tmp/inode_check.sh
     mode: "0777"
-  register: df_result
 
 - name: "Script run"
   shell: /tmp/inode_check.sh > "inode_check_{{ inventory.hostname }}.log"
