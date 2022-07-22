@@ -10,7 +10,6 @@
   shell: /tmp/inode_check.sh > "/tmp/inode_check_{{ inventory_hostname }}.log"
 
 - name: "dir create"
-  become: yes
   file:
     path: "/tmp/node_check"
     state: directory
