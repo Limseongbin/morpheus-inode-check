@@ -7,7 +7,7 @@
     mode: "0777"
 
 - name: "Gathering script run"
-  shell: /tmp/inode_check.sh > "/tmp/inode_check_{{ inventory_hostname }}.log"
+  shell: "/tmp/inode_check.sh {{ limit }} > /tmp/inode_check_{{ inventory_hostname }}.log"
 
 - name: "dir create"
   file:
