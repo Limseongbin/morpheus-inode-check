@@ -33,5 +33,9 @@
 
 - name: "Check script run"
   script: check.py
+  register: check_result
   delegate_to: localhost
+  
+- debug:
+    var: check_result.stdout
   
