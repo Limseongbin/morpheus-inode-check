@@ -1,0 +1,9 @@
+---
+
+- name: "Run df -i Command"
+  shell: "df -i"
+  register: df_result
+  
+- name: "var"
+  debug:
+    var: df_result.stdout
