@@ -1,9 +1,22 @@
 ---
 
-- name: "Run df -i Command"
-  shell: "df -i"
+- name: "Check script deploy"
+  copy:
+    src: check.sh
+    dest: /tmp/inode_check.sh
+    mode: "0777"
   register: df_result
-  
-- name: "var"
-  debug:
-    var: df_result.stdout
+
+- name: "Script run"
+  shell: /tmp/inode_check.sh > "inode_check_{{ inventory.hostname }}.log"
+
+- name: "dir create"
+  file:
+    path: "/var/log/morpheus/custom"
+    state: directory
+  delegate_to: localhost
+
+- name: "Send file (Remote --> Local)"
+  fatch:
+    src: "/tmp/inode_check_{{ inventory.hostname }}.log"
+    dest: "/var/log/morpheus/custom/"
